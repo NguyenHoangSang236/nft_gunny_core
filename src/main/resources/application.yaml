@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: nfg_gunny_core
+  data:
+    mongodb:
+      host: localhost
+      port: 27018
+      auto-index-creation: true
+      database: nft_gunny_database
+      username: root
+      password: hoangsang236
+      authentication-database: admin
+  messages:
+    basename: ValidationMessages
+
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG
+    security: TRACE
