@@ -12,15 +12,19 @@ import java.lang.annotation.*;
 public @interface InsertValid {
     String message() default "InsertValid Error: Invalid !!";
 
-    String phoneMessage() default "InsertValid Error: Invalid phone number !!";
+    String phoneMessage() default "InsertValid Error: Invalid phone number";
 
-    String emailMessage() default "InsertValid Error: Invalid email !!";
+    String emailMessage() default "InsertValid Error: Invalid email";
 
-    String nullMessage() default "InsertValid Error: Can not be null !!";
+    String nullMessage() default "InsertValid Error: Can not be null";
+
+    String sha256Message() default "InsertValid Error: Invalid format";
 
     boolean isPhoneNumber() default false;
 
     boolean isEmail() default false;
+
+    boolean isSha256() default false;
 
     boolean nullable() default false;
 

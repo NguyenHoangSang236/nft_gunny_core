@@ -22,6 +22,14 @@ public class CheckUtils {
         );
     }
 
+    // Check if the text is sha256 encode format
+    public boolean isSha256(String text) {
+        return patternMatches(
+                text,
+                "^[a-fA-F0-9]{64}$"
+        );
+    }
+
 
     // check if the text has special sign (not A-Z, a-z and space)
     public boolean hasSpecialSign(String input) {

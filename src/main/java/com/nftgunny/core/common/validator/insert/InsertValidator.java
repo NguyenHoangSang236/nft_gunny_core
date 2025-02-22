@@ -11,8 +11,10 @@ public class InsertValidator implements ConstraintValidator<InsertValid, Object>
     String message;
     String phoneMessage;
     String emailMessage;
+    String sha256Message;
     String nullMessage;
     boolean isPhoneNumber;
+    boolean isSha256;
     boolean isEmail;
     boolean nullable;
 
@@ -20,10 +22,12 @@ public class InsertValidator implements ConstraintValidator<InsertValid, Object>
     public void initialize(InsertValid constraintAnnotation) {
         this.emailMessage = constraintAnnotation.emailMessage();
         this.nullMessage = constraintAnnotation.nullMessage();
+        this.sha256Message = constraintAnnotation.sha256Message();
         this.message = constraintAnnotation.message();
         this.phoneMessage = constraintAnnotation.phoneMessage();
         this.isPhoneNumber = constraintAnnotation.isPhoneNumber();
         this.isEmail = constraintAnnotation.isEmail();
+        this.isSha256 = constraintAnnotation.isSha256();
         this.nullable = constraintAnnotation.nullable();
 
         ConstraintValidator.super.initialize(constraintAnnotation);
@@ -55,6 +59,13 @@ public class InsertValidator implements ConstraintValidator<InsertValid, Object>
             if (isPhoneNumber && !checkUtils.isValidPhoneNumber(value.toString())) {
                 context.disableDefaultConstraintViolation();
                 context.buildConstraintViolationWithTemplate(this.phoneMessage).addConstraintViolation();
+
+                return false;
+            }
+
+            if (isSha256 && !checkUtils.isSha256(value.toString())) {
+                context.disableDefaultConstraintViolation();
+                context.buildConstraintViolationWithTemplate(this.sha256Message).addConstraintViolation();
 
                 return false;
             }

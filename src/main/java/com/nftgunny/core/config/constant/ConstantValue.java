@@ -7,6 +7,9 @@ public class ConstantValue {
     public static final int SIX_HOURS_MILLISECOND = 1000 * 60 * 60 * 6;
     public static final int SIX_HOURS_SECOND = 3600 * 6;
 
+    public static final String ADMIN_AUTHOR = "hasAuthority('ADMIN')";
+    public static final String PLAYER_AUTHOR = "hasAuthority('PLAYER')";
+
     public static final String REQUEST_ID = "request_id";
     public static final int DEFAULT_PAGE_SIZE = 20;
 

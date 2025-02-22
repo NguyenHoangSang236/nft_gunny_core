@@ -379,7 +379,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(
                 ApiResponse.builder()
                         .result(ResponseResult.failed.name())
-                        .message(ExceptionType.FILE.getValue())
+                        .message(ExceptionType.INVALID_PARAMETER.getValue())
                         .errors(Collections.singletonList("Field " + ex.getParameterName() + " must not be null"))
                         .status(HttpStatus.BAD_REQUEST)
                         .build(),
