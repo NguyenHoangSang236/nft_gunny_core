@@ -12,7 +12,7 @@ services:
       MONGO_INITDB_DATABASE: nft_gunny_database
     volumes:
       - mongo_data:/data/db
-      - /home/mr/JAVA/smart_contract/core/database/nft_gunny_database_backup:/data/backup
+      - /Users/mailethanhthien/game gunny/nft_gunny_core/database/nft_gunny_database_backup:/data/backup
 
 volumes:
   mongo_data:
