@@ -1,0 +1,1 @@
+mongodump -d nft_gunny_database -o ./database --port 27018 --username root --password hoangsang236 --authenticationDatabase admin

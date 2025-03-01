@@ -17,5 +17,14 @@ public class ConstantValue {
     public static final String UNAUTHORIZED_ERROR_MESSAGE = "Unauthorized error";
     public static final String ACCESS_ERROR_MESSAGE = "Access error";
 
+    public static final int DEFAULT_CHAR_DAMAGE = 10;
+    public static final int DEFAULT_CHAR_HP = 100;
+    public static final int DEFAULT_CHAR_MP = 100;
+
+    public static final int MAX_ACCESSORY_AMOUNT_PER_CHARACTER = 2;
+    public static final int MAX_WEAPON_AMOUNT_PER_CHARACTER = 1;
+    public static final int MAX_HAT_AMOUNT_PER_CHARACTER = 1;
+    public static final int MAX_CLOTHES_AMOUNT_PER_CHARACTER = 1;
+
     public static final String DATETIME_ISO_8601_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 }

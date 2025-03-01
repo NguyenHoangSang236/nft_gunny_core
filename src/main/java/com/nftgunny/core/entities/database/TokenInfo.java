@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.security.core.GrantedAuthority;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @Document("refresh_token")
 @Builder
-public class TokenInfo extends MongoDbEntity {
+public class TokenInfo extends MongoDbEntity implements Serializable {
     @Id
     String id;
 
