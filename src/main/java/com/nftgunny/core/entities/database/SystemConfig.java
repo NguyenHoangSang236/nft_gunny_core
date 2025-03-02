@@ -1,9 +1,6 @@
 package com.nftgunny.core.entities.database;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 
+@Builder
 @Setter
 @Getter
 @AllArgsConstructor
@@ -26,4 +24,7 @@ public class SystemConfig extends MongoDbEntity implements Serializable {
 
     @Field(name = "value")
     String value;
+
+    @Field(name = "description")
+    String description;
 }
