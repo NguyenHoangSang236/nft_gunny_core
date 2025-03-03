@@ -46,45 +46,50 @@ public class InitiateConfigUtils {
     }
 
     public void getWeightSystemConfig() {
-        List<SystemConfig> weightConfigs = systemConfigRepo.findByIds(
-                List.of(
-                        SystemConfigCriteria.ATTACK_WEIGHT.name(),
-                        SystemConfigCriteria.DEFENSE_WEIGHT.name(),
-                        SystemConfigCriteria.MAGIC_WEIGHT.name()
-                )
-        );
+        try {
+            List<SystemConfig> weightConfigs = systemConfigRepo.findByIds(
+                    List.of(
+                            SystemConfigCriteria.ATTACK_WEIGHT.name(),
+                            SystemConfigCriteria.DEFENSE_WEIGHT.name(),
+                            SystemConfigCriteria.MAGIC_WEIGHT.name()
+                    )
+            );
 
-        StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder();
 
-        for(SystemConfig config : weightConfigs) {
-            if(config.getId().equals(SystemConfigCriteria.ATTACK_WEIGHT.name())) {
-                ConstantValue.SYSTEM_CONFIG.put(
-                        SystemConfigCriteria.ATTACK_WEIGHT.name(),
-                        config.getValue()
-                );
-                stringBuilder.append("Attack, ");
-            }
-            else if(config.getId().equals(SystemConfigCriteria.DEFENSE_WEIGHT.name())) {
-                ConstantValue.SYSTEM_CONFIG.put(
-                        SystemConfigCriteria.DEFENSE_WEIGHT.name(),
-                        config.getValue()
-                );
-                stringBuilder.append("Defense, ");
-            }
-            else {
-                ConstantValue.SYSTEM_CONFIG.put(
-                        SystemConfigCriteria.MAGIC_WEIGHT.name(),
-                        config.getValue()
-                );
-                stringBuilder.append("Magic, ");
+            for(SystemConfig config : weightConfigs) {
+                if(config.getId().equals(SystemConfigCriteria.ATTACK_WEIGHT.name())) {
+                    ConstantValue.SYSTEM_CONFIG.put(
+                            SystemConfigCriteria.ATTACK_WEIGHT.name(),
+                            config.getValue()
+                    );
+                    stringBuilder.append("Attack, ");
+                }
+                else if(config.getId().equals(SystemConfigCriteria.DEFENSE_WEIGHT.name())) {
+                    ConstantValue.SYSTEM_CONFIG.put(
+                            SystemConfigCriteria.DEFENSE_WEIGHT.name(),
+                            config.getValue()
+                    );
+                    stringBuilder.append("Defense, ");
+                }
+                else {
+                    ConstantValue.SYSTEM_CONFIG.put(
+                            SystemConfigCriteria.MAGIC_WEIGHT.name(),
+                            config.getValue()
+                    );
+                    stringBuilder.append("Magic, ");
+                }
             }
 
             if(stringBuilder.isEmpty()) {
                 log.info("Failed to get all Weights configurations");
-                            }
+            }
             else {
                 log.info("Finished getting Weight configurations of {}", stringBuilder);
             }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
