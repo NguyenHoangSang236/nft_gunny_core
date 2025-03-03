@@ -1,7 +1,10 @@
 package com.nftgunny.core.config.constant;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ConstantValue {
-    public final static String RPC_DOMAIN = "http://127.0.0.1:5050";
+    public static final String RPC_DOMAIN = "http://127.0.0.1:5050";
 
     public static final int FOREVER = Integer.MAX_VALUE;
     public static final int SIX_HOURS_MILLISECOND = 1000 * 60 * 60 * 6;
@@ -27,4 +30,6 @@ public class ConstantValue {
     public static final int MAX_CLOTHES_AMOUNT_PER_CHARACTER = 1;
 
     public static final String DATETIME_ISO_8601_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+
+    public static Map<String, String> SYSTEM_CONFIG = new HashMap<>();
 }
