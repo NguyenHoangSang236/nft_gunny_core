@@ -116,10 +116,11 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(ImmutableList.of("*"));
+        config.setAllowedOrigins(ImmutableList.of("http://localhost:3000", "http://localhost:3001"));
         config.setAllowCredentials(true);
         config.setAllowedMethods(ImmutableList.of("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH"));
         config.setAllowCredentials(true);
+        config.setAllowedHeaders(ImmutableList.of("*"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
@@ -133,13 +134,12 @@ public class WebSecurityConfig {
             @Autowired
             RequestGetLogger requestLogger;
 
-
             @Override
             public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOriginPatterns("*")
+                        .allowedOriginPatterns("http://localhost:3000", "http://localhost:3001")
                         .allowedHeaders("*")
-                        .allowCredentials(false)
+                        .allowCredentials(true)
                         .allowedMethods("*");
             }
 
