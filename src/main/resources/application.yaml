@@ -5,13 +5,9 @@ spring:
     name: nfg_gunny_core
   data:
     mongodb:
-      host: localhost
-      port: 27018
       auto-index-creation: true
+      uri: "mongodb+srv://thanhthien34c9:thien2991@nft.rogay.mongodb.net/?retryWrites=true&w=majority&appName=nft"
       database: nft_gunny_database
-      username: root
-      password: hoangsang236
-      authentication-database: admin
   messages:
     basename: ValidationMessages
 
